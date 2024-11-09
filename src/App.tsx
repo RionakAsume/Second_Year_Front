@@ -1,11 +1,26 @@
-
-
+import { Register } from "./pages/Register";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ProtectedRouter } from "./ProtectedRouter";
+import { AuthProvider } from "./context/AuthContext";
 function App() {
-  
+
 
   return (
     <>
-      <h1>hola</h1>
+      <AuthProvider>
+
+        <BrowserRouter>
+          <Routes>
+
+            <Route path="/register" element={<Register />} />
+
+
+            <Route element={<ProtectedRouter />}>
+              
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
     </>
   )
 }
