@@ -2,6 +2,7 @@ import { Register } from "./pages/Register";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ProtectedRouter } from "./ProtectedRouter";
 import { AuthProvider } from "./context/AuthContext";
+import Main from "./pages/Main";
 function App() {
 
 
@@ -18,6 +19,7 @@ function App() {
             <Route element={<ProtectedRouter />}>
               
             </Route>
+            <Route path="/" element={<Main/>} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>
