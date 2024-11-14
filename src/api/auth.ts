@@ -5,7 +5,7 @@ import axios from "./axios"
 
 
 export const registerRequest = (user: myFormValues) => axios.post(`/register`, user)
-export const registerClienteRequest = (user: myFormValuesClient) => axios.post(`/cliente`, user)
+
 export const loginRequest = (user: myFormValuesLog)=> axios.post(`/login`, user)
 export const verifyTokenRequest = () => axios.get('/verify')
 
@@ -19,16 +19,11 @@ interface myFormValues {
     dni: string,
     email: string,
     //status: string,
-    roleId: string
+    //roleId: string
+    tipo_dni: number
 }
 
 interface myFormValuesLog {
     email: string,
     password: string,
-}
-interface myFormValuesClient {
-    cuit: string,
-    razonSocial: string,
-    provincia: string,
-    localidad: string
 }

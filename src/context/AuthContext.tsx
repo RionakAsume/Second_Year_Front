@@ -18,14 +18,18 @@ export const AuthProvider = ({ children }) => {
   const [authErrors, setAuthErros] = useState([]);
   const [loading, setLoading] = useState(true)
 
-console.log('user',user)
+//console.log('user',user)
 
   const signup = async (user) => {
     try {
       const res = await registerRequest(user);
       console.log(res)
+
+      const createdUser = res.data; // Asegúrate de que devuelve el usuario creado
+      setUser(createdUser); // Actualiza el contexto con el usuario
       setIsAutheticaded(true);
-      return res.data; // Devuelve el usuario creado
+     // return res.data;
+
     } catch (error) {
       if (Array.isArray(error.response.data)) {
         setAuthErros(error.response.data);
@@ -52,18 +56,6 @@ console.log('user',user)
     }
   };
 
-  const signupCliente = async (user) => {
-    try {
-      const res = await registerClienteRequest(user);
-      console.log(res);
-
-    } catch (error) {
-      if (Array.isArray(error.response.data)) {
-        return setAuthErros(error.response.data);
-      }
-      setAuthErros([error.response.data.message]);
-    }
-  };
 
   const logoutUser = async () => {
     try {
@@ -126,7 +118,7 @@ console.log('user',user)
       value={{
         signup,
         signin,
-        signupCliente,
+       
         user,
         isAutheticaded,
         authErrors,
