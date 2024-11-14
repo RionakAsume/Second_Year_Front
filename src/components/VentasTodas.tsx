@@ -36,11 +36,11 @@ const VentasTodas = () => {
         <table className="w-[70%]">
           <thead >
             <tr>
-              <th className="bg-custom-purple table-auto mt-4 border-white border-2 text-white" >Factura</th>
-              <th className="bg-custom-purple table-auto mt-4 border-white border-2 text-white" >Subtotal</th>
-              <th className="bg-custom-purple table-auto mt-4 border-white border-2 text-white" >Nombre</th>
-              <th className="bg-custom-purple table-auto mt-4 border-white border-2 text-white" >Apellido</th>
-              <th className="bg-custom-purple table-auto mt-4 border-white border-2 text-white" >Pago</th>
+              <th className="bg-custom-purple table-auto mt-4 border-custom-grisoscuro border-2 text-white" >Factura</th>
+              <th className="bg-custom-purple table-auto mt-4 border-custom-grisoscuro border-2 text-white" >Subtotal</th>
+              <th className="bg-custom-purple table-auto mt-4 border-custom-grisoscuro border-2 text-white" >Nombre</th>
+              <th className="bg-custom-purple table-auto mt-4 border-custom-grisoscuro border-2 text-white" >Apellido</th>
+              <th className="bg-custom-purple table-auto mt-4 border-custom-grisoscuro border-2 text-white" >Pago</th>
             </tr>
           </thead>
           <tbody>

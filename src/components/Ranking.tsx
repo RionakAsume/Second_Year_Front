@@ -11,12 +11,12 @@ const Ranking = () => {
         <table className="w-[70%]">
           <thead >
             <tr>
-            <th className="bg-custom-purple table-auto mt-4 border-white border-2 text-white" >Nombre</th>
-            <th className="bg-custom-purple table-auto mt-4 border-white border-2 text-white" >Apellido</th>
-            <th className="bg-custom-purple table-auto mt-4 border-white border-2 text-white" >Telefono</th>
-            <th className="bg-custom-purple table-auto mt-4 border-white border-2 text-white" >DNI</th>              
-            <th className="bg-custom-purple table-auto mt-4 border-white border-2 text-white" >Email</th>
-            <th className="bg-custom-purple table-auto mt-4 border-white border-2 text-white" >Compras</th>
+            <th className="bg-custom-purple table-auto mt-4 border-custom-grisoscuro border text-white" >Nombre</th>
+            <th className="bg-custom-purple table-auto mt-4 border-custom-grisoscuro border text-white" >Apellido</th>
+            <th className="bg-custom-purple table-auto mt-4 border-custom-grisoscuro border text-white" >Telefono</th>
+            <th className="bg-custom-purple table-auto mt-4 border-custom-grisoscuro border text-white" >DNI</th>              
+            <th className="bg-custom-purple table-auto mt-4 border-custom-grisoscuro border text-white" >Email</th>
+            <th className="bg-custom-purple table-auto mt-4 border-custom-grisoscuro border text-white" >Compras</th>
             </tr>
           </thead>
           <tbody> <th className=" table-auto h-8 border-custom-grisoscuro border-2" ></th>

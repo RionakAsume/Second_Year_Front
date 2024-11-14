@@ -20,8 +20,10 @@ const schema = Yup.object().shape({
 const Login = () => {
   const { signin, authErrors, isAutheticaded } = useAuth();
   const navigate = useNavigate();
+
+  
   useEffect(() => {
-    if (isAutheticaded) navigate("/main");
+    if (isAutheticaded) navigate("/");
   }, [isAutheticaded]);
 
   const submitForm = async (values: myFormValues) => {

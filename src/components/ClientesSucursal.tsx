@@ -39,11 +39,11 @@ const ClientesSucursal = () => {
         <table className="w-[70%]">
           <thead>
             <tr>
-              <th  className="bg-custom-purple table-auto mt-4 border-white border-2 text-white" >Nombre</th>
-              <th  className="bg-custom-purple table-auto mt-4 border-white border-2 text-white" >Apellido</th>
-              <th  className="bg-custom-purple table-auto mt-4 border-white border-2 text-white" >Teléfono</th>
-              <th  className="bg-custom-purple table-auto mt-4 border-white border-2 text-white" >DNI</th>
-              <th  className="bg-custom-purple table-auto mt-4 border-white border-2 text-white" >Email</th>
+              <th  className="bg-custom-purple table-auto mt-4 border-custom-grisoscuro border-2 text-white" >Nombre</th>
+              <th  className="bg-custom-purple table-auto mt-4 border-custom-grisoscuro border-2 text-white" >Apellido</th>
+              <th  className="bg-custom-purple table-auto mt-4 border-custom-grisoscuro border-2 text-white" >Teléfono</th>
+              <th  className="bg-custom-purple table-auto mt-4 border-custom-grisoscuro border-2 text-white" >DNI</th>
+              <th  className="bg-custom-purple table-auto mt-4 border-custom-grisoscuro border-2 text-white" >Email</th>
             </tr>
           </thead>
           <tbody><th className=" table-auto h-8 border-custom-grisoscuro border-2" ></th>
