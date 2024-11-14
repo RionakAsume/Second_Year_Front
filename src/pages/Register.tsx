@@ -2,10 +2,17 @@ import Imput from "../components/Imput";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { useAuth } from "../context/AuthContext";
+import { useEffect } from "react";
 import { LogoSeconYear } from "../assets/logo";
+import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
-  const { signup, authErrors, signupCliente, user } = useAuth();
+  const { signup, authErrors, user, isAutheticaded } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAutheticaded) navigate("/");
+  }, [isAutheticaded]);
 
   const initialValues: myFormValues = {
     full_name: "",
@@ -15,12 +22,7 @@ export const Register = () => {
     phone: "",
     dni: "",
     email: "",
-    roleId: 0,
-    cuit: "",
-    razonSocial: "",
-    provincia: "",
-    localidad: "",
-    Tipo_dni: 0
+    tipo_dni: 0
   };
 
   const schema = Yup.object().shape({
@@ -36,16 +38,13 @@ export const Register = () => {
     dni: Yup.number().required("Se requiere DNI").positive().integer(),
     email: Yup.string().email("Email inválido").required("Se requiere email"),
 
-    tipo_dni: Yup.number().required("Se requiere roleId").positive().integer(),
-    roleId: Yup.number().required("Se requiere roleId").positive().integer(),
-    Tipo_dni: Yup.number().required("Se requiere roleId").positive().integer(),
+
+    tipo_dni: Yup.number().required("Se requiere Tipo_dni").positive("Se requiere Tipo_dni").integer(),
   });
 
   const handleSubmit = async (values: myFormValues) => {
-    console.log(values);
-    // const createdUser = await handleUserSubmit(values);
-    // console.log("aaaa", values)
-    // alert(`Usuario creado ${createdUser.full_name}`);
+    console.log("Enviando datos a la tabla user:", values);
+    await signup(values);
   };
 
   return (
@@ -162,29 +161,34 @@ export const Register = () => {
 
 
                     <select
-                  name="Tipo_Dni"
-                  value={values.Tipo_dni}
-                  onChange={(e) =>
-                    handleChange({
-                      target: {
-                        name: "Tipo_dni",
-                        value: parseInt(e.target.value, 10),
-                      },
-                    })
-                  }
-                  className="form-select w-full p-2 h-[40px] rounded-[5px] my-3 border border-black"
-                >
-                  <option value={""} >Selecciona un Tipo de identidad a cambiar</option>
-                  {["DNI", "LE", "LC", "CI"].map((description, index) => (
-                    <option
-                      key={index}
-                      
-                      value={index + 1}
+                      name="tipo_dni"
+                      value={values.tipo_dni}
+                      onChange={(e) =>
+                        handleChange({
+                          target: {
+                            name: "tipo_dni",
+                            value: parseInt(e.target.value, 10),
+                          },
+                        })
+                      }
+                      className="form-select w-full p-2 h-[40px] rounded-[5px] my-3 border border-black"
                     >
-                      {description}
-                    </option>
-                  ))}
-                </select>
+                      <option value={""} >Selecciona un Tipo de identidad a cambiar</option>
+                      {["DNI", "LE", "LC", "CI"].map((description, index) => (
+                        <option
+                          key={index}
+
+                          value={index + 1}
+                        >
+                          {description}
+                        </option>
+                      ))}
+                    </select>
+                    {errors.tipo_dni && touched.tipo_dni ? (
+                      <div className="text-custom-rojoalerta flex items-center">
+                        {errors.tipo_dni}
+                      </div>
+                    ) : null}
                   </div>
                 </div>
                 <div className="flex justify-center items-center">
@@ -193,6 +197,7 @@ export const Register = () => {
                       {error}
                     </div>
                   ))}
+
                   <button
                     type="submit"
                     className="mb-5 hover:bg-[#ffff] font-bold bg-custom-green text-[#ffff] hover:text-custom-green p-2 rounded"
@@ -217,10 +222,7 @@ interface myFormValues {
   phone: string;
   dni: string;
   email: string;
-  roleId: number;
-  cuit?: string;
-  razonSocial?: string;
-  provincia?: string;
-  localidad?: string;
-  Tipo_dni?: number;
+ 
+ 
+  tipo_dni: number;
 }
