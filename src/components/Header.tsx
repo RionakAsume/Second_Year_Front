@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 function HeaderSecond() {
 
-  const { logoutUser, user } = useAuth();
-  console.log(user)
+  const { logoutUser, user, isAutheticaded } = useAuth();
+
   const handleClick = async () => {
     await logoutUser();
 
@@ -21,10 +21,15 @@ function HeaderSecond() {
             <LogoSeconYear />
           </Link>
           <div className="w-1/3 flex justify-end items-center gap-4">
-          <div className="flex justify-center items-center flex-col">
-            <p className="font-bold text-2xl ">Hola {user.full_name} {user.surname}</p>
-            <button onClick={handleClick} className=" text-lg mb-1 hover:text-custom-purple hover:underline">Cerrar Sesión</button>
-          </div>
+            <div className="flex justify-center items-center flex-col">
+              {isAutheticaded ? (
+                <p className="font-bold text-2xl ">Hola {user.full_name}</p>
+              ) : (
+                <p></p>
+              )}
+
+              <button onClick={handleClick} className=" text-lg mb-1 hover:text-custom-purple hover:underline">Cerrar Sesión</button>
+            </div>
             <FaRegUserCircle className="text-4xl ml-3 text-custom-green" />
           </div>
 
